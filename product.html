@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products</title>
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Our Products</h1>
+    <p>Browse through our collection of top-rated products!</p>
+  </header>
+
+  <section class="products-section">
+    <div class="product-card">
+      <img src="./product-6.jpg" alt="Product 1" height="150px">
+      <h2>Black Printed T-shirt</h2>
+      <p>₹699.00</p>
+      <button class="btn" data-product="Black Printed T-shirt" data-price="699.00">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="./product-8.jpg" alt="Product 2" height="150px">
+      <h2>Man Watch</h2>
+      <p>₹1699.00</p>
+      <button class="btn" data-product="Man Watch" data-price="1699.00">Add to Cart</button>
+    </div>
+
+    <div class="product-card">
+      <img src="./product-5.jpg" alt="Product 3" height="150px">
+      <h2>Stylish Shoes</h2>
+      <p>₹399.00</p>
+      <button class="btn" data-product="Stylish Shoes" data-price="399.00">Add to Cart</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Copyright 2021 - Red Store</p>
+  </footer>
+
+  <script>
+    // Add event listener to all buttons
+    const buttons = document.querySelectorAll('.btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const product = button.getAttribute('data-product');
+        const price = button.getAttribute('data-price');
+        
+        // Simulate adding the product to the cart
+        alert(`${product} added to the cart at ₹${price}.`);
+
+        // Additional functionality: You can store the cart details in localStorage, update a cart UI, etc.
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ product, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+      });
+    });
+  </script>
+</body>
+</html>
